@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2> Myposts page</h2>
+
+  <div class="container">
+    <div class="jumbotron">
+      <h1>Create a post</h1>
+		<form method="post">
+            {% csrf_token %}
+             <div class="row">
+                <label for="username">Username:</label>
+                <input  class="form-control" type="text" name="username" placeholder="Username">
+             </div>
+            <br>
+            <div class="row">
+		        <label for="date_posted">Post date:</label>
+                <input class="form-control" type="date_posted" name="date_posted" placeholder="Date_posted">
+            </div>
+            <br>
+             <div class="row">
+                <label for="Category">Category:</label>
+                <!--<input class="form-control" type="category" name="category" placeholder="Category">-->
+                <div class="dropdown">
+                  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Category
+                  <span class="caret"></span></button>
+                  <ul class="dropdown-menu">
+                      {% for cat in category %}
+                        <li><a href="{{cat.0}}">{{cat.0}}</a></li>
+                      {% endfor %}
+                  </ul>
+                </div>
+            <br>
+            <div class="row">
+                <label for="Post_content">Content:</label>
+                <textarea class="form-control form-group-lg" type="post_content" name="post_content" placeholder="Post_content"> </textarea>
+            </div>
+            <br>
+          <button class="btn btn-primary" type="submit">Button</button>
+
+
+
+
+		</form>
+	 </div>
+  </div>
+
+    <!--&lt;!&ndash; Jquery JS&ndash;&gt;-->
+    <!--<script src="vendor/jquery/jquery.min.js"></script>-->
+    <!--&lt;!&ndash; Vendor JS&ndash;&gt;-->
+    <!--<script src="vendor/select2/select2.min.js"></script>-->
+    <!--<script src="vendor/datepicker/moment.min.js"></script>-->
+    <!--<script src="vendor/datepicker/daterangepicker.js"></script>-->
+
+    <!--&lt;!&ndash; Main JS&ndash;&gt;-->
+    <!--<script src="js/global.js"></script>-->
+
+{% endblock %}

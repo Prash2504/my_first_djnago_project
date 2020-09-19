@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h3><b> Displaying all blogs </b></h3>
+<div class="container">
+    {% for my_posts in my_blog_data %}
+        <div class = "panel panel-default">
+            <div class="panel-heading bold">
+                <b>Blog by - {{my_posts.name}}</b>
+                <b class="pull-right"> posted_on - {{my_posts.date_time}}</b>
+            </div>
+            <div class = "panel-body">
+                <p>User_Post:{{my_posts.data}}</p>
+                <p>Category:{{my_posts.category}}</p>
+                <br>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+
+{% endblock %}
