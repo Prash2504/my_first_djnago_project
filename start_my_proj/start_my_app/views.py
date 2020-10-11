@@ -62,8 +62,19 @@ def myposts(request):
     print("Myposts")
     print(request.POST)
     if "username" in request.session:
-        category = my_choices
-        return render(request, "myposts.html", locals())
+        if request.method == "POST":
+            print(request.POST["username"])
+            user_posts = UserPosts(name = request.POST["username"],
+                                   date_time = datetime.now(),
+                                   category=request.POST["category"],
+                                   data = request.POST["post_content"])
+
+            user_posts.save()
+            return redirect('/')
+
+        elif request.method == "GET" :
+            category = my_choices
+            return render(request, "myposts.html", locals())
     else:
         return render(request, 'login.html')
 

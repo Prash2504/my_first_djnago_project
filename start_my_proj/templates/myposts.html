@@ -21,25 +21,23 @@
              <div class="row">
                 <label for="Category">Category:</label>
                 <!--<input class="form-control" type="category" name="category" placeholder="Category">-->
-                <div class="dropdown">
-                  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Category
-                  <span class="caret"></span></button>
-                  <ul class="dropdown-menu">
-                      {% for cat in category %}
-                        <li><a href="{{cat.0}}">{{cat.0}}</a></li>
-                      {% endfor %}
-                  </ul>
-                </div>
+                {% for cat in  category%}
+                 <div class="form-check">
+                    <input class="form-check-input" type="radio" name="category" id="exampleRadios2" value="{{cat.0}}">
+                        <label class="form-check-label" for="exampleRadios2">
+                            {{cat.0}}
+                        </label>
+                    </div>
+                 {% endfor %}
+
+             </div>
             <br>
             <div class="row">
                 <label for="Post_content">Content:</label>
                 <textarea class="form-control form-group-lg" type="post_content" name="post_content" placeholder="Post_content"> </textarea>
             </div>
             <br>
-          <button class="btn btn-primary" type="submit">Button</button>
-
-
-
+            <button class="btn btn-primary" type="submit">Submit</button>
 
 		</form>
 	 </div>

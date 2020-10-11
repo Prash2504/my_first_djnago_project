@@ -5,7 +5,8 @@ my_choices = (
     ('Hiking', 'Hiking'),
     ('Rafting', 'Rafting'),
     ('Treking', 'Treking'),
-    ('Roadtrips', 'Roadtrips')
+    ('Roadtrips', 'Roadtrips'),
+    ('Carraces', 'Carraces'),
 )
 
 # Create your models here.
